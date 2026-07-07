@@ -319,4 +319,60 @@ ORDER BY inventory_value DESC;
 - **Full name:** Vanessa Fontalvo
 - **Clan:** Puerta de Oro
 
+
+---
+
+## 🚀 How to Run the Project
+
+### 1. Start the PostgreSQL Container
+Navigate to the project root folder (`bd_vanessa_fontalvo_puertadeoro`) and run the following command in your terminal:
+```bash
+docker compose up -d
+```
+
+Verify that the container is up and running successfully:
+```bash
+docker ps
+```
+You should see the container `bd_vanessa_fontalvo_puertadeoro` with the status **Up**.
+
+### 2. Connection Details
+The Docker container exposes PostgreSQL on **port 5433** of your local machine (mapped to the internal port 5432). Use these credentials to connect:
+
+| Parameter | Value |
+| :--- | :--- |
+| **Host** | `localhost` |
+| **Port** | `5433` |
+| **Database** | `bd_vanessa_fontalvo_puertadeoro` |
+| **Username** | `postgres` |
+| **Password** | `postgres123` |
+
+### 3. Connect via DBeaver
+1. Open DBeaver and click on **New Connection** (the plug icon in the top-left corner).
+2. Select **PostgreSQL** from the list and click **Next**.
+3. Fill in the connection fields using the credentials from the table above (ensure you use port **5433**).
+4. Click **Test Connection** to verify. If prompted to download the driver, accept it.
+5. Click **Finish**.
+
+---
+
+## 📜 How to Test the Scripts
+
+There are two ways to execute the `.sql` files.
+
+### Option 1: Via DBeaver (Recommended)
+1. Connect to the database following the steps above.
+2. Open your `.sql` file via **File** ➡️ **Open File**, then copy and paste the script into the DBeaver SQL editor.
+3. Ensure the script points to the correct database (verify the active connection and database name shown above the editor).
+4. **Execution shortcuts:**
+   * Execute the **entire script**: Press `Alt + X`
+   * Execute a **single statement**: Press `Ctrl + Enter` (on the current cursor line)
+
+### Option 2: Via Terminal (Alternative)
+If you prefer the command line, you can execute the scripts directly inside the container:
+```bash
+docker exec -i bd_vanessa_fontalvo_puertadeoro-postgres psql -U postgres -d gestion_academica_universidad < path/to/your/script.sql
+```
+
+
 Github link: 

@@ -40,7 +40,8 @@ ORDER BY total_orders DESC;
 
 
 --Query 3
-
+-- The Financial Manager needs to identify which product categories generate the
+-- highest revenue.
 
 SELECT
     cat.category_name,
@@ -56,7 +57,8 @@ ORDER BY total_sales DESC;
 
 
 --Query 4
-
+-- The Logistics Coordinator needs to identify products that are close to running out
+of stock. 
 
 SELECT
     p.product_name,
@@ -72,7 +74,8 @@ LIMIT 5;
 
 
 --Query 5
-
+-- The Commercial Director needs to identify the most active clients based on the
+-- number of orders placed.
 SELECT
     c.client_name,
     COUNT(o.order_id) AS total_orders
@@ -83,6 +86,8 @@ GROUP BY c.client_name
 ORDER BY total_orders DESC;
 
 -- Query 6
+-- The General Manager needs to know the total inventory value stored at each
+-- distribution center.
 SELECT
     dc.center_name,
     SUM(i.stock * p.unit_price) AS inventory_value

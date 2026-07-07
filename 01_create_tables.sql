@@ -86,10 +86,4 @@ CREATE TABLE eco_order_details (
         ON UPDATE CASCADE ON DELETE RESTRICT            -- no se puede borrar un producto con pedidos
 );
 
--- ---------- ÍNDICES para las consultas del negocio (INDEXES FOR BUSINESS QUERIES) ----------
-CREATE INDEX idx_ord_client      ON eco_orders (client_id);
-CREATE INDEX idx_det_order       ON eco_order_details (order_id);
-CREATE INDEX idx_det_product     ON eco_order_details (product_id);
-CREATE INDEX idx_inv_product     ON eco_inventory (product_id);
-CREATE INDEX idx_inv_center      ON eco_inventory (center_id);
-CREATE INDEX idx_prod_category   ON eco_products (category_id);
+
